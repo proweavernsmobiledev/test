@@ -54,12 +54,11 @@ if [[ $is_new == 'y' ]]; then
         echo -e -n "${FG_Wh}What's your dev branch name? ${FG_Cy}dev_"
         read dev_branch
         git checkout -b "dev_$dev_branch"
+        git_branch = $dev_branch
     fi
 
     
     git checkout -b $git_branch
-    
-    git push origin $git_branch
     git push origin release
     git push origin main
     
