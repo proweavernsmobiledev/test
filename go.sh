@@ -60,12 +60,19 @@ if [[ $is_new == 'y' ]]; then
     git checkout -b $git_branch
     
     git push origin $git_branch
+    git push origin release
+    git push origin main
+    
 else
     
 
-    if ! git show-ref --verify --quiet "refs/heads/$git_branch"; then
+    if git show-ref --verify --quiet "refs/heads/$git_branch"; then
+        git checkout $git_branch
+    else
         git checkout -b $git_branch
+        git push origin $git_branch
     fi
+
 
     git pull origin $git_branch
 fi
