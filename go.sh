@@ -54,7 +54,7 @@ if [[ $is_new == 'y' ]]; then
         echo -e -n "${FG_Wh}What's your dev branch name? ${FG_Cy}dev_"
         read dev_branch
         git checkout -b "dev_$dev_branch"
-        git_branch = $dev_branch
+        git_branch=$dev_branch
     fi
 
     
